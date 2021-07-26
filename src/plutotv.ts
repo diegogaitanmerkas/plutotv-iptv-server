@@ -35,8 +35,8 @@ class PlutoTvClient {
     );
 
     let url = "https://api.pluto.tv/v2/channels" +
-      "?start=" + moment().format("YYYY-MM-DD HH:00:00.000ZZ") +
-      "&stop=" + moment().add(8, "hours").format("YYYY-MM-DD HH:00:00.000ZZ") +
+      "?start=" + startTime +
+      "&stop=" + stopTime +
       "&deviceId=thisisatest" +
       "&deviceMake=PlutoXML" +
       "&deviceVersion=" + "1.0.0.0" +
