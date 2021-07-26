@@ -10,4 +10,4 @@ router.get('/channels', channelsController.getChannels);
 router.get('/data', channelsController.getData);
 router.get('/epg', epgController.getEpg);
 
-export {router}
+export { router }

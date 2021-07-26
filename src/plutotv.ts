@@ -3,7 +3,7 @@ import { promises as fs } from "fs";
 import moment from "moment";
 
 class PlutoTvClient {
-  async getData() : Promise<any[]> {
+  async getData(): Promise<any[]> {
     // check for cache
 
     const cacheFileExists = await fs.stat("cache.json").then(a => true).catch(e => false);
@@ -34,7 +34,17 @@ class PlutoTvClient {
       moment().add(8, "hours").format("YYYY-MM-DD HH:00:00.000ZZ")
     );
 
-    let url = `http://api.pluto.tv/v2/channels?start=${startTime}&stop=${stopTime}`;
+    let url = "https://api.pluto.tv/v2/channels" +
+      "?start=" + moment().format("YYYY-MM-DD HH:00:00.000ZZ") +
+      "&stop=" + moment().add(8, "hours").format("YYYY-MM-DD HH:00:00.000ZZ") +
+      "&deviceId=thisisatest" +
+      "&deviceMake=PlutoXML" +
+      "&deviceVersion=" + "1.0.0.0" +
+      "&deviceType=web" +
+      "&deviceDNT=1" +
+      "&sid=thisisatest" +
+      "&appName=PlutoXML" +
+      "&appVersion=" + "1.0.0.0";
 
     console.info('[INFO] Downloading updated info from PlutoTV Servers')
 
